@@ -40,7 +40,7 @@ fun GradScreen(modifier: Modifier = Modifier) {
     Image(
         painter = painterResource(R.drawable.grad_cap),
         contentDescription = stringResource(R.string.graduation_cap),
-        alpha = 0.7f
+        alpha = 0.3f
     )
     Text(
         text = stringResource(R.string.graduation_announcement),
