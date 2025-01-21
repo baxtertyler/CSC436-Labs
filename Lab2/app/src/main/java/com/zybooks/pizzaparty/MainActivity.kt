@@ -67,6 +67,7 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
     var numPeopleInput by remember { mutableStateOf("") }
     var hungerLevel by remember { mutableStateOf("Medium") }
 
+
     Column(
         modifier = modifier.padding(10.dp)
     ) {
@@ -86,7 +87,6 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
             radioOptions = listOf("Light", "Medium", "Ravenous"),
             selectedOption = hungerLevel,
             onSelected = { hungerLevel = it },
-            selectedValue = "Medium",
             modifier = modifier
         )
         Text(
@@ -96,7 +96,7 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
         )
         Button(
             onClick = {
-                totalPizzas = calculateNumPizzas(numPeopleInput.toInt(), hungerLevel)
+                totalPizzas = calculateNumPizzas(numPeopleInput.toIntOrNull() ?: 0, hungerLevel)
             },
             modifier = modifier.fillMaxWidth()
         ) {
@@ -112,7 +112,6 @@ fun NumberField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var textInput by remember { mutableStateOf("") }
 
     TextField(
         value = textInput,
@@ -132,11 +131,9 @@ fun RadioGroup(
     radioOptions: List<String>,
     selectedOption: String,
     onSelected: (String) -> Unit,
-    selectedValue: String,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     val isSelectedOption: (String) -> Boolean = { selectedOption == it }
-
 
     Column {
         Text(labelText)
