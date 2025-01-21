@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zybooks.pizzaparty.ui.theme.PizzaPartyTheme
 import kotlin.math.ceil
+import kotlin.math.min
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,7 +102,7 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
         )
         Button(
             onClick = {
-                totalPizzas = calculateNumPizzas(numPeopleInput.toIntOrNull() ?: 0, hungerLevel)
+                totalPizzas = calculateNumPizzas(min(numPeopleInput.toIntOrNull() ?: 0, 0), hungerLevel)
             },
             modifier = modifier.fillMaxWidth()
         ) {
