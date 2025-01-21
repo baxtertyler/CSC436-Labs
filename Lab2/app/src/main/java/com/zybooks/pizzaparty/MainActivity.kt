@@ -23,6 +23,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -72,25 +73,29 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
         modifier = modifier.padding(10.dp)
     ) {
         Text(
-            text = "Pizza Party",
+            text = stringResource(R.string.pizza_party),
             fontSize = 38.sp,
             modifier = modifier.padding(bottom = 16.dp)
         )
         NumberField(
-            labelText = "Number of people?",
+            labelText = stringResource(R.string.number_of_people),
             textInput = numPeopleInput,
             onValueChange = { numPeopleInput = it },
-            modifier = modifier.padding(bottom = 16.dp).fillMaxWidth()
+            modifier = modifier
+                .padding(bottom = 16.dp)
+                .fillMaxWidth()
         )
         RadioGroup(
-            labelText = "How hungry?",
-            radioOptions = listOf("Light", "Medium", "Ravenous"),
+            labelText = stringResource(R.string.how_hungry),
+            radioOptions = listOf(stringResource(R.string.light),
+                stringResource(R.string.medium), stringResource(R.string.ravenous)
+            ),
             selectedOption = hungerLevel,
             onSelected = { hungerLevel = it },
             modifier = modifier
         )
         Text(
-            text = "Total pizzas: $totalPizzas",
+            text = stringResource(R.string.total_pizzas, totalPizzas),
             fontSize = 22.sp,
             modifier = modifier.padding(top = 16.dp, bottom = 16.dp)
         )
@@ -100,7 +105,7 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
             },
             modifier = modifier.fillMaxWidth()
         ) {
-            Text("Calculate")
+            Text(stringResource(R.string.calculate))
         }
     }
 }
