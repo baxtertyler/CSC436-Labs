@@ -54,7 +54,7 @@ fun PizzaPartyScreen(
 @Composable
 fun AppTitle(modifier: Modifier = Modifier) {
     Text(
-        text = "Pizza Party",
+        text = "Pizza Party Woo",
         fontSize = 38.sp,
         modifier = modifier.padding(bottom = 16.dp)
     )
@@ -67,7 +67,7 @@ fun PartySize(
     modifier: Modifier = Modifier
 ) {
     NumberField(
-        labelText = "Number of people?",
+        labelText = "Number of people people?",
         textInput = numPeopleInput,
         onValueChange = { onValueChange(it) },
         modifier = modifier.padding(bottom = 16.dp).fillMaxWidth()
