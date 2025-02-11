@@ -278,7 +278,6 @@ fun PetAppBar(
 fun PreviewListScreen() {
    PetAdoptionTheme {
       ListScreen(
-         //petList = PetDataSource().loadPets(),
          onImageClick = {}
       )
    }
